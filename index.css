@@ -55,7 +55,7 @@ table, td {
 td {
 	padding: 2px 5px;
 }
-input[type=text], input[type=number] {
+input[type=text], input[type=number], textarea {
 	outline: 1px groove var(--font) !important;
 	box-shadow: none !important;
 	border: none !important;
