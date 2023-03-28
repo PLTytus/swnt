@@ -1,0 +1,16 @@
+{
+	"short_name": "Service Worker Notification Tester",
+	"name": "Service Worker Notification Tester",
+	"icons": [
+		{
+			"src": "manifest.jpg",
+			"type": "image/jpg",
+			"sizes": "256x256"
+		}
+	],
+	"author": "PLTytus",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#000",
+	"theme_color": "#000"
+}
