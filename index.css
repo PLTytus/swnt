@@ -10,7 +10,10 @@ body {
 	background: var(--bg);
 	color: var(--font);
 	text-align: center;
+}
+#main {
 	height: calc(100vh - 150px);
+	overflow: auto;
 }
 form {
 	display: inline-block;

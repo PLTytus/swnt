@@ -16,88 +16,90 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	</head>
 	<body>
-		<h1>
-			<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification">
-				Service Worker Notification Tester
-			</a>
-		</h1>
-		
-		<form name="notify">
-			<table>
-				<tbody>
-					<tr>
-						<td>Title: </td>
-						<td><input type="text" name="title"></td>
-					</tr><tr>
-						<td>Actions: </td>
-						<td>TODO</td>
-					</tr><tr>
-						<td>Badge: </td>
-						<td><input type="text" name="badge" placeholder="URL"></td>
-					</tr><tr>
-						<td>Body: </td>
-						<td><input type="text" name="body"></td>
-					</tr><tr>
-						<td>Data: </td>
-						<td>TODO</td>
-					</tr><tr>
-						<td>Dir: </td>
-						<td>
-							<label><input type="radio" name="dir" value="" checked> default</label>
-							<label><input type="radio" name="dir" value="auto"> auto</label>
-							<label><input type="radio" name="dir" value="ltr"> ltr</label>
-							<label><input type="radio" name="dir" value="rtl"> rtl</label>
-						</td>
-					</tr><tr>
-						<td>Icon: </td>
-						<td><input type="text" name="icon" placeholder="URL"></td>
-					</tr><tr>
-						<td>Image: </td>
-						<td><input type="text" name="image" placeholder="URL"></td>
-					</tr><tr>
-						<td>Lang: </td>
-						<td><input type="text" name="lang"></td>
-					</tr><tr>
-						<td>Renotify: </td>
-						<td>
-							<label><input type="radio" name="renotify" value="" checked> default</label>
-							<label><input type="radio" name="renotify" value="true"> true</label>
-							<label><input type="radio" name="renotify" value="false"> false</label>
-						</td>
-					</tr><tr>
-						<td>Require interaction: </td>
-						<td>
-							<label><input type="radio" name="requireInteraction" value="" checked> default</label>
-							<label><input type="radio" name="requireInteraction" value="true"> true</label>
-							<label><input type="radio" name="requireInteraction" value="false"> false</label>
-						</td>
-					</tr><tr>
-						<td>Silent: </td>
-						<td>
-							<label><input type="radio" name="silent" value="" checked> default</label>
-							<label><input type="radio" name="silent" value="true"> true</label>
-							<label><input type="radio" name="silent" value="false"> false</label>
-						</td>
-					</tr><tr>
-						<td>Tag: </td>
-						<td><input type="text" name="tag"></td>
-					</tr><tr>
-						<td>Timestamp: </td>
-						<td><input type="number" min="0" step="1" name="timestamp"></td>
-					</tr><tr>
-						<td>Vibrate: </td>
-						<td><input type="text" name="vibrate" placeholder="e.g. 1,2,3" title="e.g. 1,2,3" pattern="^(([0-9]+,)*[0-9]+)*$" oninput="this.value=this.value.replace(/[^0-9,]/g, '');"></td>
-					</tr>
-				</tbody><tfoot>
-					<tr>
-						<td colspan="2">
-							<input type="submit" value="TEST">
-							<input type="button" name="permission" value="Request Permission">
-						</td>
-					</tr>
-				</tfoot>
-			</table>
-		</form>
+		<div id="main">
+			<h1>
+				<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification">
+					Service Worker Notification Tester
+				</a>
+			</h1>
+			
+			<form name="notify">
+				<table>
+					<tbody>
+						<tr>
+							<td>Title: </td>
+							<td><input type="text" name="title"></td>
+						</tr><tr>
+							<td>Actions: </td>
+							<td>TODO</td>
+						</tr><tr>
+							<td>Badge: </td>
+							<td><input type="text" name="badge" placeholder="URL"></td>
+						</tr><tr>
+							<td>Body: </td>
+							<td><input type="text" name="body"></td>
+						</tr><tr>
+							<td>Data: </td>
+							<td>TODO</td>
+						</tr><tr>
+							<td>Dir: </td>
+							<td>
+								<label><input type="radio" name="dir" value="" checked> default</label>
+								<label><input type="radio" name="dir" value="auto"> auto</label>
+								<label><input type="radio" name="dir" value="ltr"> ltr</label>
+								<label><input type="radio" name="dir" value="rtl"> rtl</label>
+							</td>
+						</tr><tr>
+							<td>Icon: </td>
+							<td><input type="text" name="icon" placeholder="URL"></td>
+						</tr><tr>
+							<td>Image: </td>
+							<td><input type="text" name="image" placeholder="URL"></td>
+						</tr><tr>
+							<td>Lang: </td>
+							<td><input type="text" name="lang"></td>
+						</tr><tr>
+							<td>Renotify: </td>
+							<td>
+								<label><input type="radio" name="renotify" value="" checked> default</label>
+								<label><input type="radio" name="renotify" value="true"> true</label>
+								<label><input type="radio" name="renotify" value="false"> false</label>
+							</td>
+						</tr><tr>
+							<td>Require interaction: </td>
+							<td>
+								<label><input type="radio" name="requireInteraction" value="" checked> default</label>
+								<label><input type="radio" name="requireInteraction" value="true"> true</label>
+								<label><input type="radio" name="requireInteraction" value="false"> false</label>
+							</td>
+						</tr><tr>
+							<td>Silent: </td>
+							<td>
+								<label><input type="radio" name="silent" value="" checked> default</label>
+								<label><input type="radio" name="silent" value="true"> true</label>
+								<label><input type="radio" name="silent" value="false"> false</label>
+							</td>
+						</tr><tr>
+							<td>Tag: </td>
+							<td><input type="text" name="tag"></td>
+						</tr><tr>
+							<td>Timestamp: </td>
+							<td><input type="number" min="0" step="1" name="timestamp"></td>
+						</tr><tr>
+							<td>Vibrate: </td>
+							<td><input type="text" name="vibrate" placeholder="e.g. 1,2,3" title="e.g. 1,2,3" pattern="^(([0-9]+,)*[0-9]+)*$" oninput="this.value=this.value.replace(/[^0-9,]/g, '');"></td>
+						</tr>
+					</tbody><tfoot>
+						<tr>
+							<td colspan="2">
+								<input type="submit" value="TEST">
+								<input type="button" name="permission" value="Request Permission">
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</form>
+		</div>
 
 		<div id="log"></div>
 	</body>
