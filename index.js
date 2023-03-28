@@ -52,7 +52,7 @@ document.onreadystatechange = function(){
 					console.log("Notification permission: ", permission);
 				});
 			} catch(e){
-				console.log("Notification not supported.");
+				console.error("Notification not supported.");
 			}
 		}
 	}
@@ -64,11 +64,11 @@ document.onreadystatechange = function(){
 		navigator.serviceWorker.register("sw.js").then(function(registration){
 			console.log("ServiceWorker registration successful with scope: ", registration.scope);
 		}, function(err){
-			console.log("ServiceWorker registration failed: ", err);
+			console.error("ServiceWorker registration failed: ", err);
 		});
 		support = true;
 	} else {
-		console.log("Service workers not supported.");
+		console.error("Service workers not supported.");
 		support = false;
 	}
 
@@ -76,12 +76,12 @@ document.onreadystatechange = function(){
 		requestPermission();
 	});
 
-	document.querySelector("form[name=notify").addEventListener("submit", function(e){
+	document.querySelector("form[name=notify]").addEventListener("submit", function(e){
 		e.preventDefault();
 		e.stopImmediatePropagation();
 
 		if(!support){
-			console.log("Service workers not supported.");
+			console.error("Service workers not supported.");
 			return false;
 		}
 
@@ -103,7 +103,13 @@ document.onreadystatechange = function(){
 		
 		navigator.serviceWorker.ready.then(function(registration){
 			console.log("Sending notification...");
-			registration.showNotification(title, options);
+			registration.showNotification(title, options).then(function(){
+				console.log("Notification sent.");
+			}).catch(function(e) {
+				console.error("Error:", e);
+			});
+		}).catch(function(error) {
+			console.error("Error:", e);
 		});
 	});
 }
