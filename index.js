@@ -1,6 +1,8 @@
 document.onreadystatechange = function(){
 	if(document.readyState != "complete") return;
 
+	if(location.protocol !== "https:") location.protocol = "https:";
+
 	const originalConsoleLog = console.log;
 	const originalConsoleInfo = console.info;
 	const originalConsoleDebug = console.debug;
