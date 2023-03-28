@@ -54,6 +54,7 @@ table, td {
 }
 td {
 	padding: 2px 5px;
+	vertical-align: top;
 }
 input[type=text], input[type=number], textarea {
 	outline: 1px groove var(--font) !important;
@@ -113,4 +114,13 @@ input[type=submit]{
 }
 * {
 	scrollbar-width: thin; /* firefox */
+}
+.action {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 5px;
+	margin-bottom: 3px;
+}
+.action:last-of-type {
+	margin: 0;
 }

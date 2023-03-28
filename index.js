@@ -1,7 +1,7 @@
 document.onreadystatechange = function(){
 	if(document.readyState != "complete") return;
 
-	if(location.protocol !== "https:") location.protocol = "https:";
+	if(!["https:", "file:"].includes(location.protocol)) location.protocol = "https:";
 
 	const originalConsoleLog = console.log;
 	const originalConsoleInfo = console.info;
@@ -89,6 +89,18 @@ document.onreadystatechange = function(){
 		let options = {};
 		
 		let badge = this.badge.value.trim(); if(badge) options.badge = badge;
+
+		let actions = []; let action_1 = {}; let action_2 = {};
+		let action_action_1 = this.action_action_1.value.trim(); if(action_action_1) action_1.action = action_action_1;
+		let action_title_1 = this.action_title_1.value.trim(); if(action_title_1) action_1.title = action_title_1;
+		let action_icon_1 = this.action_icon_1.value.trim(); if(action_icon_1) action_1.icon = action_icon_1;
+		if(Object.keys(action_1).length) actions.push(action_1);
+		let action_action_2 = this.action_action_2.value.trim(); if(action_action_2) action_2.action = action_action_2;
+		let action_title_2 = this.action_title_2.value.trim(); if(action_title_2) action_2.title = action_title_2;
+		let action_icon_2 = this.action_icon_2.value.trim(); if(action_icon_2) action_2.icon = action_icon_2;
+		if(Object.keys(action_2).length) actions.push(action_2);
+		if(actions.length) options.actions = actions;
+
 		let body = this.body.value.trim(); if(body) options.body = body;
 		let dir = this.dir.value.trim(); if(dir) options.dir = dir;
 		let icon = this.icon.value.trim(); if(icon) options.icon = icon;
@@ -100,7 +112,7 @@ document.onreadystatechange = function(){
 		let tag = this.tag.value.trim(); if(tag) options.tag = tag;
 		let timestamp = this.timestamp.value.trim(); if(timestamp) options.timestamp = timestamp;
 		let vibrate = this.vibrate.value.trim(); if(vibrate) options.vibrate = vibrate.split(',');
-		
+
 		navigator.serviceWorker.ready.then(function(registration){
 			console.log("Sending notification...");
 			registration.showNotification(title, options).then(function(){
