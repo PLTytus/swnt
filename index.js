@@ -1,4 +1,3 @@
-
 document.onreadystatechange = function(){
 	if(document.readyState != "complete") return;
 
@@ -51,14 +50,14 @@ document.onreadystatechange = function(){
 					console.log("Notification permission: ", permission);
 				});
 			} catch(e){
-				onsole.log("Notification not supported.");
+				console.log("Notification not supported.");
 			}
 		}
 	}
 
 	var support;
 
-	if("serviceWorker" in navigator){
+	if(navigator.serviceWorker && ServiceWorkerRegistration.prototype.showNotification){
 		requestPermission();
 		navigator.serviceWorker.register("sw.js").then(function(registration){
 			console.log("ServiceWorker registration successful with scope: ", registration.scope);
