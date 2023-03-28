@@ -12,9 +12,13 @@ body {
 	text-align: center;
 }
 #main {
-	height: calc(100vh - 150px);
 	overflow: auto;
 	padding: 5px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 150px;
+	width: 100%;
 }
 form {
 	display: inline-block;
@@ -71,10 +75,6 @@ input {
 	font-size: 12px;
 	text-align: left;
 	font-weight: normal;
-}
-.result {
-	user-select: all;
-	cursor: default;
 }
 input[type=submit]{
 	text-align: center;
