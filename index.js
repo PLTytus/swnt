@@ -2,6 +2,44 @@
 document.onreadystatechange = function(){
 	if(document.readyState != "complete") return;
 
+	const originalConsoleLog = console.log;
+	const originalConsoleInfo = console.info;
+	const originalConsoleDebug = console.debug;
+	const originalConsoleWarn = console.warn;
+	const originalConsoleError = console.error;
+
+	const logElement = document.querySelector("#log");
+
+	console.log = function(...args){
+		originalConsoleLog.apply(console, args);
+		logElement.innerHTML += `<p><span>${new Date().toTimeString().split(' ')[0]}</span> <span style="color:white;">${args.join(' ')}</p>`;
+		logElement.scrollTop = logElement.scrollHeight;
+	};
+
+	console.info = function(...args){
+		originalConsoleInfo.apply(console, args);
+		logElement.innerHTML += `<p><span>${new Date().toTimeString().split(' ')[0]}</span> <span style="color:blue;">${args.join(' ')}</p>`;
+		logElement.scrollTop = logElement.scrollHeight;
+	};
+
+	console.debug = function(...args){
+		originalConsoleDebug.apply(console, args);
+		logElement.innerHTML += `<p><span>${new Date().toTimeString().split(' ')[0]}</span> <span style="color:gray;">${args.join(' ')}</p>`;
+		logElement.scrollTop = logElement.scrollHeight;
+	};
+
+	console.warn = function(...args){
+		originalConsoleWarn.apply(console, args);
+		logElement.innerHTML += `<p><span>${new Date().toTimeString().split(' ')[0]}</span> <span style="color:orange;">${args.join(' ')}</p>`;
+		logElement.scrollTop = logElement.scrollHeight;
+	};
+
+	console.error = function(...args){
+		originalConsoleError.apply(console, args);
+		logElement.innerHTML += `<p><span>${new Date().toTimeString().split(' ')[0]}</span> <span style="color:red;">${args.join(' ')}</p>`;
+		logElement.scrollTop = logElement.scrollHeight;
+	};
+
 	function requestPermission(){
 		try {
 			Notification.requestPermission().then(permission => {
